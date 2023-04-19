@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine,text
 import os
-connection_string=os.environ['connection_string']
+
+connection_string=os.getenv('connection_string')
 engine=create_engine(connection_string)
 
 
