@@ -1,30 +1,12 @@
 from flask import Flask,render_template,jsonify
+from database import load_db
 app=Flask(__name__)
 #route is a part of url after rendering a website
-Jobs=[
-  {
-    'id':1,
-    'title':'Data Analyst',
-    'location':'Benguluru',
-    'salary':'Rs. 15,00,000'
-  },
-   {
-    'id':2,
-    'title':'Data Scientist',
-    'location':'Delhi',
-    'salary':'Rs. 15,00,000'
-  },
-   {
-    'id':3,
-    'title':'Web Developer',
-    'location':'SanFransisco',
-    'salary':'Rs. 15,000,000'
-  }
-]
+Jobs=load_db()
 @app.route('/')#empty route or homepage
 def hello_world():
   return render_template('home.html',job=Jobs,Company_name='Honey')
-@app.route('/jobs')
+@app.route('/api/jobs')
 def jason():
   return jsonify(Jobs)
 if __name__ =='__main__':
