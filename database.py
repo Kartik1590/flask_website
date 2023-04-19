@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine,text
-
+import os
+connection_string=os.environ['sec']
 engine=create_engine(connection_string)
 
 
@@ -10,3 +11,4 @@ def load_db():
     for row in result:
       result_dicts.append(dict(row))
   return result_dicts
+
