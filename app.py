@@ -1,5 +1,5 @@
 from flask import Flask,render_template,jsonify
-from flask_website.database import load_db
+from database import load_db
 import json
 app=Flask(__name__)
 #route is a part of url after rendering a website
